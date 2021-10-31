@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import navbar from './Navbar';
 
-export default class register extends Component {
+export default class CartButton extends Component {
   render() {
     return (
       <div>
-        
+        <button></button>
       </div>
     )
   }

@@ -5,6 +5,7 @@ const Cart = props => {
   );
   return (
     <div className="bg-dark text-white">
+      <title>Cart Page</title>
       <ul>
       {cartItems}
       <div> 

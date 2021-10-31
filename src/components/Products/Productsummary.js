@@ -10,8 +10,8 @@ const ProductsSummary = () => {
           <h6 className="card-subtitle mb-2 text-muted">Delicious Food, Delivered To You</h6>
             <p className="card-text"> Choose your preference from our broad selection of available programmers
               and enjoy 30mins of a tutoring session</p>
-              <Link href="/" className="card-link">Card link</Link>
-              <Link href="/" className="card-link">Another link</Link>
+              <Link to="/" className="card-link">Card link</Link>
+              <Link to="/" className="card-link">Another link</Link>
       </div>
       </div>
     </div>
