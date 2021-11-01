@@ -1,7 +1,6 @@
 
 import ProductItem from './ProductItem/ProductItem';
 
-
 const DUMMY_ITEMS = [
   {
     id: 'm1',
@@ -36,21 +35,14 @@ const AvailableProducts = () => {
   description={product.description} 
   price={product.price}
   />
-  ));
-  
-  return ( 
+  ))
+  return (
     <section>
-        <ul>{productsList}</ul>
+      <ul>{productsList}</ul>
     </section>
-  );
-};
-  // Passing a function to map. For every product we want to return a JSX element which represents the product. 
+   
+  )
+  }
 
-// fetch('https://kekambas-bs.herokuapp.com/')
-//     .then(res => res.json())
-//     .then((data) => {
-//       console.log(data);    
-//  });
-
-
-export default AvailableProducts;
+    export default AvailableProducts;
+  // Passing a function to map. For every product we want to return a JSX element which represents the product.
