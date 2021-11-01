@@ -1,11 +1,31 @@
-import React, { Component } from 'react'
+import React, {useState, useEffect} from 'react';
+import { Redirect } from 'react-router-dom';
 
-export default class Login extends Component {
-  render() {
+export const Login = (props) => {
+
+  const [redirect, setRedirect] = useState(null)
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let username = e.target.username.value;
+    let password = e.target.password.value;
+    let encodedString = btoa(`${username}:${password}`)
+    let myHeaders = new Headers();
+    myHeaders.append('Authorization', `Basic ${encodedString}`)
+
+    fetch('https://localhost:5000/api/token', {
+      method: 'POST',
+      headers: myHeaders
+    }).then(res => res.json())
+      .then(data => {
+        localStorage.setItem('token', data['token'])
+        setRedirect('/')
+      })
+      .catch(err => console.error(err))
+
+  }
     return (
-      <>
-      <title>Login to Shop!</title>
-      <form>
+      <form onSubmit={handleSubmit}>
             <h3 className='text-center'>Login Here</h3>
             <div className='form-group'>
                 <fieldset>
@@ -19,7 +39,5 @@ export default class Login extends Component {
                 <input type='submit' className='btn btn-primary' value='Login' />
             </div>
         </form>
-        </>
     )
-  }
-}
+  };
