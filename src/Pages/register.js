@@ -29,18 +29,6 @@ export default class Register extends Component {
             email: e.target.email.value,
             password: e.target.password.value
         })
-        fetch('http://localhost:3000/api/users', {
-            method: 'POST',
-            headers: myHeaders,
-            body: data
-        }).then(res => res.json())
-            .then(data => {
-                console.log(data)
-                this.setState({
-                    redirect:'/Home'
-                })
-            })
-                .catch(err => console.error(err))
     }
   render() {
       return (

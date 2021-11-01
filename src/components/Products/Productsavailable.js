@@ -1,8 +1,8 @@
-import Card from '../UI/Card';
-import ProductItem from './ProductItem/ProductItem';
-import Products from './Products';
 
-const DUMMY_MEALS = [
+import ProductItem from './ProductItem/ProductItem';
+
+
+const DUMMY_ITEMS = [
   {
     id: 'm1',
     name: 'Sushi',
@@ -11,8 +11,8 @@ const DUMMY_MEALS = [
   },
   {
     id: 'm2',
-    name: 'Schnitzel',
-    description: 'A german specialty!',
+    name: 'Hotdish',
+    description: 'A minnesotan catch-all',
     price: 16.5,
   },
   {
@@ -29,7 +29,7 @@ const DUMMY_MEALS = [
   },
 ];
 const AvailableProducts = () => {
-  const productsList = DUMMY_MEALS.map((product) => (
+  const productsList = DUMMY_ITEMS.map((product) => (
   <ProductItem 
   key={product.id}
   name={product.name} 

@@ -1,31 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 export const Login = (props) => {
-
-  const [redirect, setRedirect] = useState(null)
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let username = e.target.username.value;
-    let password = e.target.password.value;
-    let encodedString = btoa(`${username}:${password}`)
-    let myHeaders = new Headers();
-    myHeaders.append('Authorization', `Basic ${encodedString}`)
-
-    fetch('https://localhost:5000/api/token', {
-      method: 'POST',
-      headers: myHeaders
-    }).then(res => res.json())
-      .then(data => {
-        localStorage.setItem('token', data['token'])
-        setRedirect('/')
-      })
-      .catch(err => console.error(err))
-
-  }
     return (
-      <form onSubmit={handleSubmit}>
+      props.loggedIn ? <Redirect to='/' /> :
+      <form onSubmit={props.handleSubmit}>
             <h3 className='text-center'>Login Here</h3>
             <div className='form-group'>
                 <fieldset>

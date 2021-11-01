@@ -16,25 +16,27 @@ export default class Navbar extends Component {
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/Home">Home</Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link active" to="/register">Register</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/Login">Login</Link>
-              </li>
+              </li> */}
               {this.props.loggedIn ? <LoggedInNav /> : <LoggedOutNav />}
           </ul>
-              <li className="nav-item">
-                <Link className="nav-link ms-auto" to="/Cart">Cart</Link>
+              <li className="nav-item  ms-auto">
+                <Link className="nav-link" to="/Cart">Cart</Link>
               </li>
               { this.props.loggedIn ?
-              <li className="nav-item">
+              <ul className="nav-item ms-auto">
+                <li className="nav-item">
                 <Link className="nav-link" to="/" onClick={this.props.logout}>Logout</Link>
               </li>
+              </ul>
               : null}
         </div>
       </div>
     </nav>
-    );
-  };
-};
+    )
+  }
+}
